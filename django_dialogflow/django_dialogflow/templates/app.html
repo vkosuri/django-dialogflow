@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <html>
   <head>
-    <title>API AI</title>
+    <title>Django Dialogflow</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
   </head>
@@ -9,7 +9,7 @@
 
     <div class="container">
       <div class="page-header text-center">
-        <h1>API.AI</h1>
+        <h1>Django Dialogflow</h1>
       </div>
 
       <div class="row">
@@ -32,12 +32,17 @@
     <script src="{% static 'js/js.cookie.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
     <script>
-      var apiAiUrl = '{% url "apiai:index" %}';
+      var $chatlog = $('.js-chat-log');
+      var $input = $('.js-text');
+      var $sayButton = $('.js-say');
+      var dialogflowUrl = '{% url "index" %}';
       var csrftoken = Cookies.get('csrftoken');
+
       function csrfSafeMethod(method) {
         // these HTTP methods do not require CSRF protection
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
       }
+
       $.ajaxSetup({
         beforeSend: function(xhr, settings) {
           if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -45,49 +50,56 @@
           }
         }
       });
-      var $chatlog = $('.js-chat-log');
-      var $input = $('.js-text');
-      var $sayButton = $('.js-say');
+
       function createRow(text) {
         var $row = $('<li class="list-group-item"></li>');
         var list = '<li class="list-group-item">'
         var k = text.split("\n")
+
         for(i=0;i<k.length;i++) {
             list += k[i]+"<br />"
         }
+
         list = list + "</li>"
         $row.text(list);
         $chatlog.append(list);
       }
-      window.onload = createRow('<b><font size="2" face="Lucida Console">Chat with API.AI</font></b>');
+
+      window.onload = createRow('<b><font size="2" face="Lucida Console">Chat with Dialogflow</font></b>');
+
       function submitInput() {
         var inputData = {
           'text': $input.val()
         }
         // Display the user's input on the web page
         createRow(inputData.text);
-        var apiAiChatUrl = '{% url "apiai:chat" %}';
+        var dialogflowChatUrl = '{% url "chat" %}';
         var $submit = $.ajax({
-          url: apiAiChatUrl,
+          type: 'POST',
+          url: dialogflowChatUrl,
           data: JSON.stringify(inputData),
           contentType: 'application/json'
         });
+
         $submit.done(function(statement) {
             createRow(statement.text);
             // Clear the input field
             $input.val('');
         });
+
         $submit.fail(function() {
           // TODO: Handle errors
         });
       }
+
       $sayButton.click(function() {
         submitInput();
       });
+
       $input.keydown(function(event) {
         // Submit the input when the enter button is pressed
         if (event.keyCode == 13) {
-          submitInput();apiAiChatUrl
+          submitInput();dialogflowChatUrl
         }
       });
     </script>
