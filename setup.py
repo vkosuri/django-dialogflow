@@ -20,7 +20,7 @@ with open('requirements.txt') as requirements:
     REQUIREMENTS = requirements.readlines()
 
 setup(
-    name='django_dialogflow',
+    name='django-dialogflow',
     version=VERSION,
     url=URL,
     download_url='{}/tarball/{}'.format(URL, VERSION),

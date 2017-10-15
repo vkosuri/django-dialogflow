@@ -81,6 +81,6 @@ Licensed under [MIT](./LICENSE.md)
 
 ## Contributing
 
-Development of django-dialogflow happens at Github: http://github.com/vkosuri/django-dialogflow
+Development of django_dialogflow happens at Github: http://github.com/vkosuri/django-dialogflow
 
 You are highly encouraged to participate in the development. If you don't like Github (for some reason) you're welcome to send regular patches.
