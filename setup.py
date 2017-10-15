@@ -13,7 +13,7 @@ VERSION = DJANGO_DIALOGFLOW.__version__
 AUTHOR = DJANGO_DIALOGFLOW.__author__
 AUTHOR_EMAIL = DJANGO_DIALOGFLOW.__email__
 URL = DJANGO_DIALOGFLOW.__url__
-DESCRIPTION = DJANGO_DIALOGFLOW.__doc__
+DESCRIPTION = 'Django Dialogflow chat agent'
 LONG_DESCRIPTION = 'Django Dialogflow chat agent'
 
 with open('requirements.txt') as requirements:
