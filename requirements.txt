@@ -1,2 +1,4 @@
 Django>=1.11.5,<1.11.6
 dialogflow>=0.0.3,<0.0.4
+mock
+django-cors-headers

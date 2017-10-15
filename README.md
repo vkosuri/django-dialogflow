@@ -1,20 +1,13 @@
-# django-apiai
+# Django Dialogflow
 
-Django [API.AI](https://api.ai/) is a web client to chat.
+Django [Dialogflow](https://dialogflow.com) is a web client to chat.
 
-## How to train
-In progress
+## Using the development version
 
-## Development
-To make development environment clone this repository
-
-git clone https://github.com/vkosuri/django-apiai.git
+You can clone the git repository by doing the following:
 
 ``` Bash
-virtualenv venv
-source venv/bin/activate
-pip install --upgrade pip
-pip install --upgrade -r requirements.txt
+$ git clone git://github.com/vkosuri/django-dialogflow.git
 ```
 
 ## Production your Bot
@@ -47,10 +40,47 @@ CORS_ORIGIN_WHITELIST = (
 )
 ```
 
+## Installation
+
+If you are trying ``django_dialogflow`` as app,
+
+Then you could install django-dialogflow either via the Python Package Index (PyPI) or from source.
+
+To install using pip :
+
+``` Bash
+$ pip install django-dialogflow
+```
+
+and then add it to your installed apps:
+
+``` Bash
+INSTALLED_APPS = (
+    ...
+    'django_dialogflow',
+    ...
+)
+```
+
+You will then want to create the necessary tables. If you generating schema migrations, you'll want to run:
+
+``` Bash
+$ python manage.py migrate django_dialogflow
+```
+
 ## Examples
-All examples are located here https://github.com/vkosuri/django-apiai/tree/master/examples
+
+All [examples](./examples) are located here Github repo
+
 ## Motivation
+
 https://github.com/gunthercox/django_chatterbot
 
 ## LICENSE
-Licensed under MIT https://github.com/vkosuri/django-apiai/blob/master/LICENSE.md
+Licensed under [MIT](./LICENSE.md)
+
+## Contributing
+
+Development of django-dialogflow happens at Github: http://github.com/vkosuri/django-dialogflow
+
+You are highly encouraged to participate in the development. If you don't like Github (for some reason) you're welcome to send regular patches.
