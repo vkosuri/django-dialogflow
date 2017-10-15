@@ -41,7 +41,7 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT',
+        'License :: OSI Approved :: MIT License',
         'Environment :: Console',
         'Environment :: Web Environment',
         'Operating System :: OS Independent',
