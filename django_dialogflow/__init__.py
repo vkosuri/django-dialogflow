@@ -1,9 +1,7 @@
-import sys
-
-if 'install' not in sys.argv and 'egg_info' not in sys.argv:
-    from .voice import VoiceInput
-    from .voice import VoiceOutput
-
+"""
+Django Dialogflow chat agent
+"""
 __version__ = '0.0.1'
 __author__ = 'Mallikarjunarao Kosuri'
-__email__ = 'venkatamallikarjunarao.kosuri@adtran.com'
+__email__ = 'malli.kv2@gmail.com'
+__url__ = 'https://github.com/vkosuri/django-dialogflow'
