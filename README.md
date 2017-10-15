@@ -1,5 +1,8 @@
 # Django Dialogflow
 
+[![Package Version](https://img.shields.io/pypi/v/django-dialogflow.svg)](https://pypi.python.org/pypi/django-dialogflow/)
+[![Build Status](https://travis-ci.org/vkosuri/django-dialogflow.svg?branch=master)](https://travis-ci.org/vkosuri/django-dialogflow)
+
 Django [Dialogflow](https://dialogflow.com) is a web client to chat.
 
 ## Using the development version
