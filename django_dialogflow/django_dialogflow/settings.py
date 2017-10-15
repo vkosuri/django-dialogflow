@@ -22,17 +22,13 @@ SECRET_KEY = '=!3#_p1azz)e)%thknqv--kfseq4!wh94@8&08l#fz1ovxjh1&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
-# API.AI Settings
-URL = 'https://api.api.ai/v1/query'
+# Dialogflow settings
 
-# demo agent access token: e5dc21cab6df451c866bf5efacb40178
-CLIENT_ACCESS_TOKEN = '86773b26ca554576971f45baff906bce'
-DEVELOPER_ACCESS_TOKEN = '7f3918105982484c866c5891ae31972f'
-
-# https://api.ai/docs/reference/agent/#versioning
-API_VERSION = '20150910'
+DIALOGFLOW = {
+    'client_access_token': 'e5dc21cab6df451c866bf5efacb40178',
+}
 
 # Application definition
 
@@ -43,9 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_bootstrap_base_template',
-    'apiai_chat',
-    'chat',
+    'django_dialogflow',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,7 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'apiai_chat.urls'
+ROOT_URLCONF = 'django_dialogflow.urls'
 
 TEMPLATES = [
     {
@@ -75,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'apiai_chat.wsgi.application'
+WSGI_APPLICATION = 'django_dialogflow.wsgi.application'
 
 
 # Database
