@@ -13,17 +13,50 @@ You can clone the git repository by doing the following:
 $ git clone git://github.com/vkosuri/django-dialogflow.git
 ```
 
-## Production your Bot
+## API view
 
-Start the Django app by running
+If you need a django_dialogflow API endpoint you will want to add the following to your [urls.py](./django_dialogflow/urls.py)
 
-``` Bash
-python manage.py runserver 0.0.0.0:8000
+``` Python
+urlpatterns = [
+    url(r'chat/$', chat_view, name='chat'),
+    url(r'^$', index_view, name='index'),
+    url(r'^admin/', admin.site.urls),
+]
+
 ```
 
-Further documentation on getting set up with Django and ChatterBot can be found in the ChatterBot documentation
+The endpoint expects a JSON request with the following data:
 
-## ALLOWD_HOSTS
+``` Python
+{"text": "My input statement"}
+```
+
+See detailed example how end point translated in [app.html](./django_dialogflow/templates/app.html)
+
+
+## Sync your database
+
+You will then want to create the necessary tables. If you generating schema migrations, you'll want to run:
+
+``` Bash
+$ python manage.py migrate django_dialogflow
+```
+
+## Production your Bot
+
+### Configuring Dialogflow
+
+To configure Dialogflow [client access token](https://dialogflow.com/docs/reference/agent/#using_access_tokens), go [settings.py](./django_dialogflow/settings.py)
+
+``` Python
+# Dialogflow settings
+DIALOGFLOW = {
+    'client_access_token': 'e5dc21cab6df451c866bf5efacb40178',
+}
+```
+
+### ALLOWD_HOSTS
 
 Modify Django Allowed hosts to access your application everywhere, to do this modify settings.py as suggested below
 
@@ -31,7 +64,7 @@ Modify Django Allowed hosts to access your application everywhere, to do this mo
 ALLOWED_HOSTS = ['A.B.C.D', 'localhost']
 ```
 
-## CORS_ORIGIN_WHITELIST
+### CORS_ORIGIN_WHITELIST
 
 Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served.
 
@@ -42,6 +75,14 @@ CORS_ORIGIN_WHITELIST = (
     'A.B.C.D:9000',
 )
 ```
+
+### Deploy
+
+``` Bash
+python manage.py runserver 0.0.0.0:8000
+```
+
+Further documentation on getting set up with Django and ChatterBot can be found in the ChatterBot documentation
 
 ## Installation
 
@@ -65,11 +106,20 @@ INSTALLED_APPS = (
 )
 ```
 
-You will then want to create the necessary tables. If you generating schema migrations, you'll want to run:
 
-``` Bash
-$ python manage.py migrate django_dialogflow
-```
+## Webservices
+
+If you want to host your Django app, you need to choose a method through which it will be hosted. There are a few free services that you can use to do this such as [Heroku](https://dashboard.heroku.com/) and [PythonAnyWhere](https://www.pythonanywhere.com/details/django_hosting).
+
+### WSGI
+
+A common method for serving Python web applications involves using a Web Server Gateway Interface (WSGI) package.
+
+Gunicorn is a great choice for a WSGI server. They have detailed documentation and installation instructions on their website.
+
+### Hosting static files
+
+There are numerous ways to host static files for your Django application. One extreemly easy way to do this is by using WhiteNoise, a python package designed to make it possible to serve static files from just about any web application.
 
 ## Examples
 
