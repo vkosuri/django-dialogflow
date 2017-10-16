@@ -5,15 +5,19 @@
 
 Django [Dialogflow](https://dialogflow.com) is a web client to chat.
 
-## Using the development version
+## Table of contents
 
-You can clone the git repository by doing the following:
+1. [API View](#api-view)
+2. [Sync your database](#sync-your-database)
+3. [Production your BOT](#production-your-bot)
+4. [Installation](#installation)
+5. [Configuring Webservice](#configuring-webservice)
+6. [Examples](#examples)
+7. [Motivation](#motivation)l
+8. [License](#license)
+9. [Contributing](#contributing)
 
-``` Bash
-$ git clone git://github.com/vkosuri/django-dialogflow.git
-```
-
-## API view
+## API View
 
 If you need a django_dialogflow API endpoint you will want to add the following to your [urls.py](./django_dialogflow/urls.py)
 
@@ -32,7 +36,7 @@ The endpoint expects a JSON request with the following data:
 {"text": "My input statement"}
 ```
 
-See detailed example how end point translated in [app.html](./django_dialogflow/templates/app.html)
+See detailed example how retrieve end point translated information [app.html](.django_dialogflow/django_dialogflow/templates/app.html)
 
 
 ## Sync your database
@@ -107,7 +111,7 @@ INSTALLED_APPS = (
 ```
 
 
-## Webservices
+## Configuring Webservice
 
 If you want to host your Django app, you need to choose a method through which it will be hosted. There are a few free services that you can use to do this such as [Heroku](https://dashboard.heroku.com/) and [PythonAnyWhere](https://www.pythonanywhere.com/details/django_hosting).
 
@@ -120,6 +124,14 @@ Gunicorn is a great choice for a WSGI server. They have detailed documentation a
 ### Hosting static files
 
 There are numerous ways to host static files for your Django application. One extreemly easy way to do this is by using WhiteNoise, a python package designed to make it possible to serve static files from just about any web application.
+
+## Using the development version
+
+You can clone the git repository by doing the following:
+
+``` Bash
+$ git clone git://github.com/vkosuri/django-dialogflow.git
+```
 
 ## Examples
 
