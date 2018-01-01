@@ -12,7 +12,7 @@ Django [Dialogflow](https://dialogflow.com) is a web client to chat.
 3. [Production your BOT](#production-your-bot)
 4. [Installation](#installation)
 5. [Configuring Webservice](#configuring-webservice)
-6. [Deploy your application on Heroku](#deploy-your-application-on-heroku)
+6. [Deploying on Heroku](#deploying-on-heroku)
 7. [Examples](#examples)
 8. [Motivation](#motivation)l
 9. [License](#license)
@@ -126,7 +126,33 @@ Gunicorn is a great choice for a WSGI server. They have detailed documentation a
 
 There are numerous ways to host static files for your Django application. One extreemly easy way to do this is by using WhiteNoise, a python package designed to make it possible to serve static files from just about any web application.
 
-## Deploy your application on Heroku
+## Deploying on Heroku
+
+Here some of the steps lauch your Django app with Heroku
+
+### Build your app and run it locally
+
+``` bash
+pip install -r requirements.txt
+Downloading/unpacking ...
+...
+Successfully installed Django dj-database-url dj-static django-toolbelt gunicorn psycopg2 static3
+Cleaning up...
+```
+
+### To run your application locally,
+
+``` bash
+heroku local web
+11:48:19 web.1  | started with pid 36084
+11:48:19 web.1  | 2014-07-17 11:48:19 [36084] [INFO] Starting gunicorn 19.0.0
+11:48:19 web.1  | 2014-07-17 11:48:19 [36084] [INFO] Listening at: http://0.0.0.0:5000 (36084)
+11:48:19 web.1  | 2014-07-17 11:48:19 [36084] [INFO] Using worker: sync
+11:48:19 web.1  | 2014-07-17 11:48:19 [36087] [INFO] Booting worker with pid: 36087
+```
+Your app should now be running on http://localhost:5000/.
+
+### Deploy your application on Heroku
 
 ``` Bash
 git add .
