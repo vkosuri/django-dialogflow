@@ -20,7 +20,7 @@ Django [Dialogflow](https://dialogflow.com) is a web client to chat.
 
 ## API View
 
-If you need a django_dialogflow API endpoint you will want to add the following to your [urls.py](./django_dialogflow/urls.py)
+If you need a django_dialogflow as a API endpoint, then you will need to add below steps to your [urls.py](./django_dialogflow/urls.py)
 
 ``` Python
 urlpatterns = [
@@ -42,7 +42,9 @@ See detailed example how retrieve end point translated information [app.html](.d
 
 ## Sync your database
 
-You will then want to create the necessary tables. If you generating schema migrations, you'll want to run:
+In order to persists your data you need to create the necessary ``django_dialogflow`` tables. 
+
+For generating schema migrations, you have to run these steps.
 
 ``` Bash
 $ python manage.py migrate django_dialogflow
@@ -52,7 +54,9 @@ $ python manage.py migrate django_dialogflow
 
 ### Configuring Dialogflow
 
-To configure Dialogflow [client access token](https://dialogflow.com/docs/reference/agent/#using_access_tokens), go [settings.py](./django_dialogflow/settings.py)
+To comunicate with Dialogflow you need get a [client access token](https://dialogflow.com/docs/reference/agent/#using_access_tokens), 
+
+Then go to [settings.py](./django_dialogflow/settings.py) update your ``client_access_token`` in ``settings.py``
 
 ``` Python
 # Dialogflow settings
@@ -63,7 +67,7 @@ DIALOGFLOW = {
 
 ### ALLOWD_HOSTS
 
-Modify Django Allowed hosts to access your application everywhere, to do this modify settings.py as suggested below
+Modify Django Allowed hosts to access your application everywhere, to do this modify [settings.py](./django_dialogflow/settings.py) as suggested below
 
 ``` Python
 ALLOWED_HOSTS = ['A.B.C.D', 'localhost']
@@ -73,7 +77,7 @@ ALLOWED_HOSTS = ['A.B.C.D', 'localhost']
 
 Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served.
 
-To do this modify settings.py as suggested below
+To do this modify [settings.py](./django_dialogflow/settings.py) as suggested below
 
 ``` Python
 CORS_ORIGIN_WHITELIST = (
@@ -87,13 +91,13 @@ CORS_ORIGIN_WHITELIST = (
 python manage.py runserver 0.0.0.0:8000
 ```
 
-Further documentation on getting set up with Django and ChatterBot can be found in the ChatterBot documentation
+Further documentation on Dialogflow can be found here https://dialogflow.com/
 
 ## Installation
 
-If you are trying ``django_dialogflow`` as app,
+If you are trying use ``django_dialogflow`` as app,
 
-Then you could install django-dialogflow either via the Python Package Index (PyPI) or from source.
+Then you could install ``django-dialogflow`` either via the Python Package Index (PyPI) or from GitHub source.
 
 To install using pip :
 
@@ -101,7 +105,7 @@ To install using pip :
 $ pip install django-dialogflow
 ```
 
-and then add it to your installed apps:
+and then add it to your installed apps in your settings.py:
 
 ``` Bash
 INSTALLED_APPS = (
@@ -114,7 +118,9 @@ INSTALLED_APPS = (
 
 ## Configuring Webservice
 
-If you want to host your Django app, you need to choose a method through which it will be hosted. There are a few free services that you can use to do this such as [Heroku](https://dashboard.heroku.com/) and [PythonAnyWhere](https://www.pythonanywhere.com/details/django_hosting).
+If you want to host your Django app, then you need to choose a method through which it will be hosted. There are a few free services that you can use to do this such as [Heroku](https://dashboard.heroku.com/) and [PythonAnyWhere](https://www.pythonanywhere.com/details/django_hosting).
+
+Some basic Heroku deployment instrction are found below.
 
 ### WSGI
 
@@ -128,7 +134,7 @@ There are numerous ways to host static files for your Django application. One ex
 
 ## Deploying on Heroku
 
-Here some of the steps lauch your Django app with Heroku
+Here are some of the steps to lauch your Django app with Heroku
 
 ### Build your app and run it locally
 
@@ -150,7 +156,7 @@ heroku local web
 11:48:19 web.1  | 2014-07-17 11:48:19 [36084] [INFO] Using worker: sync
 11:48:19 web.1  | 2014-07-17 11:48:19 [36087] [INFO] Booting worker with pid: 36087
 ```
-Your app should now be running on http://localhost:5000/.
+Your app should now be avaliable and running on http://localhost:5000/.
 
 ### Deploy your application on Heroku
 
