@@ -12,10 +12,11 @@ Django [Dialogflow](https://dialogflow.com) is a web client to chat.
 3. [Production your BOT](#production-your-bot)
 4. [Installation](#installation)
 5. [Configuring Webservice](#configuring-webservice)
-6. [Examples](#examples)
-7. [Motivation](#motivation)l
-8. [License](#license)
-9. [Contributing](#contributing)
+6. [Deploy your application on Heroku](#deploy-your-application-on-heroku)
+7. [Examples](#examples)
+8. [Motivation](#motivation)l
+9. [License](#license)
+10. [Contributing](#contributing)
 
 ## API View
 
@@ -124,6 +125,32 @@ Gunicorn is a great choice for a WSGI server. They have detailed documentation a
 ### Hosting static files
 
 There are numerous ways to host static files for your Django application. One extreemly easy way to do this is by using WhiteNoise, a python package designed to make it possible to serve static files from just about any web application.
+
+## Deploy your application on Heroku
+
+``` Bash
+git add .
+
+git commit -m "Added a Procfile."
+
+heroku login
+Enter your Heroku credentials.
+...
+
+heroku create
+Creating intense-falls-9163... done, stack is cedar
+http://intense-falls-9163.herokuapp.com/ | git@heroku.com:intense-falls-9163.git
+Git remote heroku added
+
+git push heroku master
+...
+-----> Python app detected
+...
+-----> Launching... done, v7
+       https://intense-falls-9163.herokuapp.com/ deployed to Heroku
+```
+
+Much more detailed information can be found here https://devcenter.heroku.com/articles/deploying-python
 
 ## Using the development version
 
