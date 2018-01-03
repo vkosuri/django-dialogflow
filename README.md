@@ -14,7 +14,7 @@ Django [Dialogflow](https://dialogflow.com) is a web client to chat.
 5. [Configuring Webservice](#configuring-webservice)
 6. [Deploying on Heroku](#deploying-on-heroku)
 7. [Examples](#examples)
-8. [Motivation](#motivation)l
+8. [Motivation](#motivation)
 9. [License](#license)
 10. [Contributing](#contributing)
 
