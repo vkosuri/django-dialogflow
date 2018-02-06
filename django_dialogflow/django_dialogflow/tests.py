@@ -1,6 +1,6 @@
 import json
 from django.test import TestCase
-from dialogflow import dialogflow
+from dialogflow_lite import dialogflow
 from mock import Mock
 from django.core.urlresolvers import reverse
 
